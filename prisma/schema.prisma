@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  customer
+  specialist
+  admin
+}
+
+enum AdminRole {
+  support
+  verification
+  operations
+  super_admin
+}
+
+enum SpecialistApprovalStatus {
+  draft
+  pending_review
+  approved
+  rejected
+  suspended
+}
+
+enum SpecialistAvailabilityStatus {
+  offline
+  online
+}
+
+enum ServiceCategory {
+  car_detailing
+  towing
+  jump_start
+  flat_tire
+  vehicle_lockout
+  fuel_delivery
+  mobile_mechanic_diagnostics
+  minor_roadside_repair
+}
+
+enum RequestStatus {
+  created
+  open
+  accepted
+  en_route
+  arrived
+  diagnosing
+  completed
+  unable_to_complete
+  cancelled
+  unmatched
+}
+
+enum OtpPurpose {
+  customer_sign_in
+  specialist_sign_in
+}
+
+model User {
+  id          String     @id @default(cuid())
+  firebaseUid String?    @unique
+  phoneNumber String?    @unique
+  email       String?    @unique
+  role        UserRole
+  adminRole   AdminRole?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  specialistProfile SpecialistProfile?
+  customerRequests  AssistanceRequest[] @relation("CustomerRequests")
+  assignedRequests  AssistanceRequest[] @relation("AssignedRequests")
+}
+
+model OtpChallenge {
+  id                String     @id @default(cuid())
+  phoneNumber       String
+  codeHash          String
+  purpose           OtpPurpose @default(customer_sign_in)
+  expiresAt         DateTime
+  consumedAt        DateTime?
+  attemptCount      Int        @default(0)
+  resendAvailableAt DateTime
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  @@index([phoneNumber, purpose, createdAt])
+  @@index([expiresAt])
+}
+
+model City {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  active    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  serviceAreas ServiceArea[]
+}
+
+model ServiceArea {
+  id        String   @id @default(cuid())
+  cityId    String
+  name      String
+  active    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  city        City                    @relation(fields: [cityId], references: [id])
+  requests    AssistanceRequest[]
+  specialists SpecialistServiceArea[]
+
+  @@unique([cityId, name])
+}
+
+model SpecialistProfile {
+  id                 String                       @id @default(cuid())
+  userId             String                       @unique
+  approvalStatus     SpecialistApprovalStatus     @default(draft)
+  availabilityStatus SpecialistAvailabilityStatus @default(offline)
+  createdAt          DateTime                     @default(now())
+  updatedAt          DateTime                     @updatedAt
+
+  user         User                    @relation(fields: [userId], references: [id])
+  categories   SpecialistCategory[]
+  serviceAreas SpecialistServiceArea[]
+}
+
+model SpecialistCategory {
+  id                  String          @id @default(cuid())
+  specialistProfileId String
+  serviceCategory     ServiceCategory
+  createdAt           DateTime        @default(now())
+
+  specialistProfile SpecialistProfile @relation(fields: [specialistProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([specialistProfileId, serviceCategory])
+  @@index([serviceCategory])
+}
+
+model SpecialistServiceArea {
+  id                  String   @id @default(cuid())
+  specialistProfileId String
+  serviceAreaId       String
+  createdAt           DateTime @default(now())
+
+  specialistProfile SpecialistProfile @relation(fields: [specialistProfileId], references: [id], onDelete: Cascade)
+  serviceArea       ServiceArea       @relation(fields: [serviceAreaId], references: [id], onDelete: Cascade)
+
+  @@unique([specialistProfileId, serviceAreaId])
+  @@index([serviceAreaId])
+}
+
+model AssistanceRequest {
+  id                 String          @id @default(cuid())
+  customerId         String
+  specialistId       String?
+  serviceCategory    ServiceCategory
+  serviceAreaId      String?
+  status             RequestStatus   @default(created)
+  coarseArea         String
+  latitude           Decimal?        @db.Decimal(9, 6)
+  longitude          Decimal?        @db.Decimal(9, 6)
+  vehicleDescription String
+  description        String
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  customer    User         @relation("CustomerRequests", fields: [customerId], references: [id])
+  specialist  User?        @relation("AssignedRequests", fields: [specialistId], references: [id])
+  serviceArea ServiceArea? @relation(fields: [serviceAreaId], references: [id])
+
+  @@index([status, serviceCategory, serviceAreaId])
+  @@index([customerId])
+  @@index([specialistId])
+}
