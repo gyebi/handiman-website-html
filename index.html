@@ -1,166 +1,193 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Handiman mobile car detailing with a bold local marketing page, clear services, and a simple quote request flow."
-    />
-    <title>Handiman | Mobile Car Detailing</title>
-    <link rel="preload" as="image" href="./public/assets/splash_logo.png" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./script.js" defer></script>
-  </head>
-  <body>
-    
-      <header class="header">
-        <a class="brand" href="#top" aria-label="Handiman home">
-          <img class="logo" src="./public/assets/handiman-logo.png" alt="Handiman" />
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#services">Services</a>
-          <a href="#request">Request</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      </header>
 
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Mobile car detailing</p>
-          <h1 id="hero-title">A clean, local-first site with no framework baggage.</h1>
-          <p class="hero-description">
-            This version keeps Handiman focused on the essentials: strong branding, simple service information, and a
-            clear way for customers to request a quote.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#request">Request a Quote</a>
-            <a class="secondary-button" href="#services">View Services</a>
-          </div>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Handiman mobile car detailing with a bold local marketing page, clear services, and a simple quote request flow." />
+  <title>Handiman | Mobile Car Detailing</title>
+  <link rel="preload" as="image" href="./public/assets/splash_logo.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
+</head>
 
-        <div class="hero-visual" aria-label="Handiman branding visual">
-          <img class="hero-image" src="./public/assets/handiman_icon_centered_enlarged.png" alt="" />
-          <div class="hero-card">
-            <strong>Static HTML, CSS, and JS only</strong>
-            <p>No Next.js, no TypeScript, no Prisma, no Firebase, no Tailwind.</p>
-          </div>
-        </div>
-      </section>
+<body>
 
-      <section id="services" class="section-services">
-        <div class="section-heading">
-          <p class="eyebrow">Services</p>
-          <h2>Choose the detail that fits the job</h2>
-          <p>The page stays focused on the core service offering instead of overwhelming visitors with app-style complexity.</p>
-        </div>
+  <header class="header">
+    <a class="brand" href="#top" aria-label="Handiman home">
+      <img class="logo" src="./public/assets/handiman-logo.png" alt="Handiman" />
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#request">Request</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
 
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="service-icon">1</div>
-            <h3>Interior Detail</h3>
-            <p>Cabin refresh for seats, carpets, touchpoints, and glass.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">2</div>
-            <h3>Exterior Detail</h3>
-            <p>Hand wash, wheels, drying, and a polished finish outside.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">3</div>
-            <h3>Full Detail</h3>
-            <p>A complete inside-and-out service for a full reset.</p>
-          </article>
-        </div>
-      </section>
+  <section class="section-video" id="vid-carwash" aria-label="Car detailing video">
+    <video class="carwash-video" autoplay muted loop playsinline preload="metadata">
+      <source src="./public/assets/handiman_car_detailing_hero.webm" type="video/webm" />
 
-      <section id="request" class="split-section">
-        <div class="request-card">
-          <div class="section-heading">
-            <p class="eyebrow">Quick request</p>
-            <h2>Start with a simple quote request</h2>
-            <p>Tell us what kind of detail you need, where the vehicle is located, and a preferred time window.</p>
-          </div>
-          <ul class="checklist">
-            <li>Interior, exterior, or full detail</li>
-            <li>Vehicle make, model, and year</li>
-            <li>ZIP code or service location</li>
-            <li>Preferred day or time window</li>
-          </ul>
-        </div>
-        <aside class="contact-card">
-          <p class="eyebrow">Contact</p>
-          <h3>Fast actions for customers</h3>
-          <a class="contact-button" href="tel:0000000000">Call for a Quote</a>
-          <a class="contact-button-alt" href="#faq">Read the FAQ</a>
-        </aside>
-      </section>
+      Your browser does not support HTML video.
+    </video>
 
-      <section id = "location" class="section-location">
-        <div class="section-heading">
-          <p class="eyebrow">Location</p>
-          <h2>Built around convenience and local service</h2>
-          <p>This structure gives the site a store-page feel while still staying true to Handiman's bold color system.</p>
-        </div>
+    <div class="video-shade" aria-hidden="true"></div>
 
-        <div class="location-grid">
-          <article class="info-card">
-            <h3>Service area</h3>
-            <p>Designed for customers who want service at home, work, or another agreed location.</p>
-          </article>
-          <article class="info-card">
-            <h3>Flexible scheduling</h3>
-            <p>Requests can be handled around availability, access, and setup needs.</p>
-          </article>
-          <article class="info-card">
-            <h3>Clean presentation</h3>
-            <p>Strong hierarchy, simple copy, and clear CTA placement across screen sizes.</p>
-          </article>
-          <article class="info-card">
-            <h3>Practical setup</h3>
-            <p>We keep the page lean so the heavy app workflows can live elsewhere.</p>
-          </article>
-        </div>
-      </section>
+    <div class="video-content">
+      <p class="video-eyebrow">Mobile car detailing</p>
 
-      <section id="faq" class="section-faq">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2>Frequently asked questions</h2>
-          <p>Short answers keep the marketing site clear and easy to scan.</p>
-        </div>
+      <h1>Professional detailing wherever you need it.</h1>
 
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>What information do I need to request service?</summary>
-            <p>Share the service type, vehicle details, service location, and a preferred time window.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Can I choose my location?</summary>
-            <p>Yes. The page is designed around a mobile service flow that works at a customer location.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Do you offer interior, exterior, and full detail options?</summary>
-            <p>Yes. Those are the three core options currently highlighted on the page.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is this page for bookings or a quote request?</summary>
-            <p>This page is quote-first and meant to move visitors toward the right next step quickly.</p>
-          </details>
-        </div>
-      </section>
+      <p>
+        Choose your detailing service, provide your location, and request a
+        convenient appointment.
+      </p>
 
-      <footer class="footer">
-        <div class="footer-brand">
-          <img class="footer-mark" src="./public/assets/handiman_icon_centered.png" alt="" />
-          <div>
-            <p class="eyebrow">Handiman</p>
-            <p class="footer-copy">Bold mobile car detailing marketing with a simple quote-first experience.</p>
-          </div>
-        </div>
-        <p class="footer-note">Handiman is focused on car detailing as the primary marketing service.</p>
-        <p class="footer-note">Built as plain HTML, CSS, and JavaScript in <span data-current-year></span>.</p>
-      </footer>
-   
-  </body>
+      <a class="video-button" href="#request">
+        Request Car Detailing
+      </a>
+    </div>
+  </section>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Mobile car detailing</p>
+      <h1 id="hero-title">A clean, local-first site with no framework baggage.</h1>
+      <p class="hero-description">
+        This version keeps Handiman focused on the essentials: strong branding, simple service information, and a
+        clear way for customers to request a quote.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-button" href="#request">Request a Quote</a>
+        <a class="secondary-button" href="#services">View Services</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-label="Handiman branding visual">
+      <img class="hero-image" src="./public/assets/handiman_icon_centered_enlarged.png" alt="" />
+      <div class="hero-card">
+        <strong>Static HTML, CSS, and JS only</strong>
+        <p>No Next.js, no TypeScript, no Prisma, no Firebase, no Tailwind.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-services">
+    <div class="section-heading">
+      <p class="eyebrow">Services</p>
+      <h2>Choose the detail that fits the job</h2>
+      <p>The page stays focused on the core service offering instead of overwhelming visitors with app-style complexity.
+      </p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-icon">1</div>
+        <h3>Interior Detail</h3>
+        <p>Cabin refresh for seats, carpets, touchpoints, and glass.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">2</div>
+        <h3>Exterior Detail</h3>
+        <p>Hand wash, wheels, drying, and a polished finish outside.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">3</div>
+        <h3>Full Detail</h3>
+        <p>A complete inside-and-out service for a full reset.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="request" class="split-section">
+    <div class="request-card">
+      <div class="section-heading">
+        <p class="eyebrow">Quick request</p>
+        <h2>Start with a simple quote request</h2>
+        <p>Tell us what kind of detail you need, where the vehicle is located, and a preferred time window.</p>
+      </div>
+      <ul class="checklist">
+        <li>Interior, exterior, or full detail</li>
+        <li>Vehicle make, model, and year</li>
+        <li>ZIP code or service location</li>
+        <li>Preferred day or time window</li>
+      </ul>
+    </div>
+    <aside class="contact-card">
+      <p class="eyebrow">Contact</p>
+      <h3>Fast actions for customers</h3>
+      <a class="contact-button" href="tel:0000000000">Call for a Quote</a>
+      <a class="contact-button-alt" href="#faq">Read the FAQ</a>
+    </aside>
+  </section>
+
+  <section id="location" class="section-location">
+    <div class="section-heading">
+      <p class="eyebrow">Location</p>
+      <h2>Built around convenience and local service</h2>
+      <p>This structure gives the site a store-page feel while still staying true to Handiman's bold color system.</p>
+    </div>
+
+    <div class="location-grid">
+      <article class="info-card">
+        <h3>Service area</h3>
+        <p>Designed for customers who want service at home, work, or another agreed location.</p>
+      </article>
+      <article class="info-card">
+        <h3>Flexible scheduling</h3>
+        <p>Requests can be handled around availability, access, and setup needs.</p>
+      </article>
+      <article class="info-card">
+        <h3>Clean presentation</h3>
+        <p>Strong hierarchy, simple copy, and clear CTA placement across screen sizes.</p>
+      </article>
+      <article class="info-card">
+        <h3>Practical setup</h3>
+        <p>We keep the page lean so the heavy app workflows can live elsewhere.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="faq" class="section-faq">
+    <div class="section-heading">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+      <p>Short answers keep the marketing site clear and easy to scan.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What information do I need to request service?</summary>
+        <p>Share the service type, vehicle details, service location, and a preferred time window.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I choose my location?</summary>
+        <p>Yes. The page is designed around a mobile service flow that works at a customer location.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer interior, exterior, and full detail options?</summary>
+        <p>Yes. Those are the three core options currently highlighted on the page.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this page for bookings or a quote request?</summary>
+        <p>This page is quote-first and meant to move visitors toward the right next step quickly.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <img class="footer-mark" src="./public/assets/handiman_icon_centered.png" alt="" />
+      <div>
+        <p class="eyebrow">Handiman</p>
+        <p class="footer-copy">Bold mobile car detailing marketing with a simple quote-first experience.</p>
+      </div>
+    </div>
+    <p class="footer-note">Handiman is focused on car detailing as the primary marketing service.</p>
+    <p class="footer-note">Built as plain HTML, CSS, and JavaScript in <span data-current-year></span>.</p>
+  </footer>
+
+</body>
+
 </html>
