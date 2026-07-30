@@ -18,7 +18,13 @@
     <a class="brand" href="#top" aria-label="Handiman home">
       <img class="logo" src="./public/assets/handiman-logo.png" alt="Handiman" />
     </a>
-    <nav class="nav" aria-label="Primary">
+    <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#request">Request</a>
       <a href="#faq">FAQ</a>
@@ -118,6 +124,69 @@
       </div>
     </div>
   </section>
+
+<section
+  class="image-band"
+  id="car-assets"
+  aria-label="Handiman car detailing services"
+>
+  <figure class="image-band-item">
+    <img
+      src="./public/assets/car-assets/car-detailing-1.jpg"
+      alt="Professional exterior car detailing"
+      data-band-image
+      data-band-caption="Paint and finish"
+      loading="lazy"
+    />
+  </figure>
+
+  <figure class="image-band-item">
+    <img
+      src="./public/assets/car-assets/car-detailing-2.jpg"
+      alt="Vehicle interior cleaning"
+      data-band-image
+      data-band-caption="Interior reset"
+      loading="lazy"
+    />
+  </figure>
+
+  <figure class="image-band-item">
+    <img
+      src="./public/assets/car-assets/car-detailing-3.webp"
+      alt="Car wheel and tyre detailing"
+      data-band-image
+      data-band-caption="Wheel detail"
+      loading="lazy"
+    />
+  </figure>
+
+  <figure class="image-band-item">
+    <img
+      src="./public/assets/car-assets/car-detailing-4.webp"
+      alt="Car paint polishing"
+      data-band-image
+      data-band-caption="Polish and shine"
+      loading="lazy"
+    />
+  </figure>
+
+  <figure class="image-band-item">
+    <img
+      src="./public/assets/car-assets/car-detailing-5.jpeg"
+      alt="Complete vehicle detailing"
+      data-band-image
+      data-band-caption="Full vehicle care"
+      loading="lazy"
+    />
+  </figure>
+
+  <div class="image-band-overlay" aria-hidden="true"></div>
+  <div class="image-band-flash" aria-hidden="true"></div>
+
+  <div class="image-band-content">
+    <p class="image-band-caption" data-band-caption-text>Paint and finish</p>
+  </div>
+</section>
 
   <section id="services" class="section-services" aria-labelledby="services-title">
     <div class="section-heading">
@@ -345,71 +414,115 @@
     </aside>
   </section>
 
-  <section id="location" class="section-location">
-    <div class="section-heading">
-      <p class="eyebrow">Location</p>
-      <h2>Built around convenience and local service</h2>
-      <p>This structure gives the site a store-page feel while still staying true to Handiman's bold color system.</p>
-    </div>
-
-    <div class="location-grid">
-      <article class="info-card">
-        <h3>Service area</h3>
-        <p>Designed for customers who want service at home, work, or another agreed location.</p>
-      </article>
-      <article class="info-card">
-        <h3>Flexible scheduling</h3>
-        <p>Requests can be handled around availability, access, and setup needs.</p>
-      </article>
-      <article class="info-card">
-        <h3>Clean presentation</h3>
-        <p>Strong hierarchy, simple copy, and clear CTA placement across screen sizes.</p>
-      </article>
-      <article class="info-card">
-        <h3>Practical setup</h3>
-        <p>We keep the page lean so the heavy app workflows can live elsewhere.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="faq" class="section-faq">
-    <div class="section-heading">
-      <p class="eyebrow">FAQ</p>
-      <h2>Frequently asked questions</h2>
-      <p>Short answers keep the marketing site clear and easy to scan.</p>
-    </div>
-
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>What information do I need to request service?</summary>
-        <p>Share the service type, vehicle details, service location, and a preferred time window.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I choose my location?</summary>
-        <p>Yes. The page is designed around a mobile service flow that works at a customer location.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Do you offer interior, exterior, and full detail options?</summary>
-        <p>Yes. Those are the three core options currently highlighted on the page.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is this page for bookings or a quote request?</summary>
-        <p>This page is quote-first and meant to move visitors toward the right next step quickly.</p>
-      </details>
-    </div>
-  </section>
-
-  <footer class="footer">
+  <footer class="site-footer">
+  <div class="footer-main">
     <div class="footer-brand">
-      <img class="footer-mark" src="./public/assets/handiman_icon_centered.png" alt="" />
-      <div>
-        <p class="eyebrow">Handiman</p>
-        <p class="footer-copy">Bold mobile car detailing marketing with a simple quote-first experience.</p>
+      <a href="#top" class="footer-logo-link" aria-label="Handiman home">
+        <img
+          class="footer-logo"
+          src="./public/assets/splash_logo.png"
+          alt="Handiman"
+        />
+      </a>
+
+      <p class="footer-description">
+        Handiman makes it easier to request professional car detailing at a
+        convenient location and time.
+      </p>
+
+      <div class="social-links" aria-label="Handiman social media">
+        <a
+          href="https://facebook.com/handiman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Handiman on Facebook"
+        >
+          Facebook
+        </a>
+
+        <a
+          href="https://instagram.com/handiman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Handiman on Instagram"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://tiktok.com/@handiman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Handiman on TikTok"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://youtube.com/@handiman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Handiman on YouTube"
+        >
+          YouTube
+        </a>
       </div>
     </div>
-    <p class="footer-note">Handiman is focused on car detailing as the primary marketing service.</p>
-    <p class="footer-note">Built as plain HTML, CSS, and JavaScript in <span data-current-year></span>.</p>
-  </footer>
+
+    <nav class="footer-column" aria-labelledby="footer-sitemap">
+      <h2 id="footer-sitemap">Sitemap</h2>
+
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Detailing Services</a></li>
+        <li><a href="#request">Request a Quote</a></li>
+        <li><a href="#car-assets">Vehicle Care</a></li>
+      </ul>
+    </nav>
+
+    <nav class="footer-column" aria-labelledby="footer-services">
+      <h2 id="footer-services">Services</h2>
+
+      <ul>
+        <li><a href="#services">Interior Detail</a></li>
+        <li><a href="#services">Exterior Detail</a></li>
+        <li><a href="#services">Full Detail</a></li>
+        <li><a href="#request">Mobile Detailing</a></li>
+        <li><a href="#request">Request a Custom Quote</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-column footer-contact">
+      <h2>Contact</h2>
+
+      <address>
+        <a href="tel:0000000000">000-000-0000</a>
+
+        <a href="mailto:hello@handiman.example">
+          hello@handiman.example
+        </a>
+
+        <p>Serving selected local areas</p>
+      </address>
+
+      <a class="footer-cta" href="#request">
+        Request Car Detailing
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      &copy; <span id="current-year"></span> Handiman. All rights reserved.
+    </p>
+
+    <div class="footer-legal">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/accessibility.html">Accessibility</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 
