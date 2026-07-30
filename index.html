@@ -119,52 +119,229 @@
     </div>
   </section>
 
-  <section id="services" class="section-services">
+  <section id="services" class="section-services" aria-labelledby="services-title">
     <div class="section-heading">
-      <p class="eyebrow">Services</p>
-      <h2>Choose the detail that fits the job</h2>
-      <p>The page stays focused on the core service offering instead of overwhelming visitors with app-style complexity.
+      <p class="eyebrow">Detailing services</p>
+
+      <h2 id="services-title">
+        Choose the detail that fits your vehicle.
+      </h2>
+
+      <p>
+        Select an interior, exterior, or complete detailing service. Each request
+        can include your vehicle information, preferred location, and convenient
+        appointment time.
       </p>
     </div>
 
     <div class="service-grid">
-      <article class="service-card">
-        <div class="service-icon">1</div>
+      <article class="service-card-1">
+        <div class="service-card-top">
+          <span class="service-number-1">01</span>
+          <p class="service-type">Interior care</p>
+        </div>
+
         <h3>Interior Detail</h3>
-        <p>Cabin refresh for seats, carpets, touchpoints, and glass.</p>
+
+        <p class="service-summary">
+          A focused cabin refresh for a cleaner and more comfortable interior.
+        </p>
+
+        <ul class="service-list">
+          <li>Full interior vacuuming</li>
+          <li>Dashboard and console cleaning</li>
+          <li>Seat and carpet cleaning</li>
+          <li>Door panels and touchpoints</li>
+          <li>Interior window cleaning</li>
+        </ul>
+
+        <a class="service-button" href="#request" aria-label="Request an interior detailing service">
+          Request Interior Detail
+        </a>
       </article>
-      <article class="service-card">
-        <div class="service-icon">2</div>
+
+      <article class="service-card-2">
+        <div class="service-card-top">
+          <span class="service-number-2">02</span>
+          <p class="service-type">Exterior care</p>
+        </div>
+
         <h3>Exterior Detail</h3>
-        <p>Hand wash, wheels, drying, and a polished finish outside.</p>
+
+        <p class="service-summary">
+          A careful exterior treatment designed to restore a clean, polished look.
+        </p>
+
+        <ul class="service-list">
+          <li>Exterior hand wash</li>
+          <li>Wheel and tyre cleaning</li>
+          <li>Safe exterior drying</li>
+          <li>Exterior window cleaning</li>
+          <li>Tyre shine and finishing</li>
+        </ul>
+
+        <a class="service-button" href="#request" aria-label="Request an exterior detailing service">
+          Request Exterior Detail
+        </a>
       </article>
-      <article class="service-card">
-        <div class="service-icon">3</div>
+
+      <article class="service-card-3">
+        <div class="service-badge">Most complete</div>
+
+        <div class="service-card-top">
+          <span class="service-number-3">03</span>
+          <p class="service-type">Inside and outside</p>
+        </div>
+
         <h3>Full Detail</h3>
-        <p>A complete inside-and-out service for a full reset.</p>
+
+        <p class="service-summary">
+          A complete interior and exterior service for a full vehicle refresh.
+        </p>
+
+        <ul class="service-list">
+          <li>Complete interior vacuuming</li>
+          <li>Seats, carpets, and surfaces</li>
+          <li>Exterior hand wash</li>
+          <li>Wheels, tyres, and windows</li>
+          <li>Exterior finishing treatment</li>
+        </ul>
+
+        <a class="service-button" href="#request" aria-label="Request a full detailing service">
+          Request Full Detail
+        </a>
       </article>
     </div>
   </section>
 
-  <section id="request" class="split-section">
+  <section id="request" class="split-section" aria-labelledby="request-title">
     <div class="request-card">
-      <div class="section-heading">
-        <p class="eyebrow">Quick request</p>
-        <h2>Start with a simple quote request</h2>
-        <p>Tell us what kind of detail you need, where the vehicle is located, and a preferred time window.</p>
+      <div class="section-heading request-heading">
+        <p class="eyebrow">Quick detailing request</p>
+
+        <h2 id="request-title">
+          Tell us what your vehicle needs.
+        </h2>
+
+        <p>
+          Choose a detailing service, provide your vehicle information and
+          preferred location, and we will contact you to confirm the arrangement.
+        </p>
       </div>
+
+      <form class="request-form" action="#" method="post">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="customer-name">Full name</label>
+            <input id="customer-name" name="customerName" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="customer-phone">Phone number</label>
+            <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" inputmode="tel" required />
+          </div>
+
+          <div class="form-group">
+            <label for="service-type">Detailing service</label>
+            <select id="service-type" name="serviceType" required>
+              <option value="">Choose a service</option>
+              <option value="interior">Interior Detail</option>
+              <option value="exterior">Exterior Detail</option>
+              <option value="full">Full Detail</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicle-type">Vehicle type</label>
+            <select id="vehicle-type" name="vehicleType" required>
+              <option value="">Choose vehicle type</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">SUV</option>
+              <option value="truck">Truck</option>
+              <option value="van">Van</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicle-details">Vehicle make, model and year</label>
+            <input id="vehicle-details" name="vehicleDetails" type="text" placeholder="Example: 2021 Toyota RAV4"
+              required />
+          </div>
+
+          <div class="form-group">
+            <label for="service-location">ZIP code or service location</label>
+            <input id="service-location" name="serviceLocation" type="text" autocomplete="postal-code"
+              placeholder="Enter ZIP code or area" required />
+          </div>
+
+          <div class="form-group">
+            <label for="preferred-date">Preferred date</label>
+            <input id="preferred-date" name="preferredDate" type="date" />
+          </div>
+
+          <div class="form-group">
+            <label for="preferred-time">Preferred time window</label>
+            <select id="preferred-time" name="preferredTime">
+              <option value="">Choose a time</option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="request-notes">Additional details</label>
+            <textarea id="request-notes" name="requestNotes" rows="4"
+              placeholder="Tell us about stains, pet hair, odours, vehicle condition, or other special requests."></textarea>
+          </div>
+        </div>
+
+        <p class="form-note">
+          Submitting this form sends a quote request. Your appointment is not
+          confirmed until Handiman contacts you.
+        </p>
+
+        <button class="submit-button" type="submit">
+          Request My Detailing Quote
+        </button>
+      </form>
+    </div>
+
+    <aside class="contact-card" aria-labelledby="contact-title">
+      <p class="eyebrow">Need assistance?</p>
+
+      <h3 id="contact-title">
+        Prefer to speak with someone?
+      </h3>
+
+      <p class="contact-description">
+        Contact Handiman directly for help selecting a detailing service or
+        arranging a suitable location.
+      </p>
+
       <ul class="checklist">
         <li>Interior, exterior, or full detail</li>
-        <li>Vehicle make, model, and year</li>
-        <li>ZIP code or service location</li>
-        <li>Preferred day or time window</li>
+        <li>Home, workplace, or agreed location</li>
+        <li>Vehicle-specific quote arrangements</li>
+        <li>Flexible appointment requests</li>
       </ul>
-    </div>
-    <aside class="contact-card">
-      <p class="eyebrow">Contact</p>
-      <h3>Fast actions for customers</h3>
-      <a class="contact-button" href="tel:0000000000">Call for a Quote</a>
-      <a class="contact-button-alt" href="#faq">Read the FAQ</a>
+
+      <div class="contact-actions">
+        <a class="contact-button" href="tel:0000000000">
+          Call for a Quote
+        </a>
+
+        <a class="contact-button-alt" href="#faq">
+          Read Frequently Asked Questions
+        </a>
+      </div>
+
+      <p class="contact-small">
+        Replace the placeholder phone number before publishing the website.
+      </p>
     </aside>
   </section>
 
