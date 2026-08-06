@@ -32,6 +32,33 @@ html {
   scroll-behavior: smooth;
 }
 
+.fa-solid,
+.fa-regular,
+.fa-brands {
+  line-height: 1;
+}
+
+.video-button i,
+.primary-button i,
+.secondary-button i,
+.service-button i,
+.contact-button i,
+.contact-button-alt i,
+.footer-cta i {
+  margin-right: 0.6rem;
+  font-size: 0.95em;
+}
+
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  margin-bottom: 0.35rem;
+  color: var(--handiman-red);
+  font-size: 1rem;
+}
+
 
 body {
   margin: 0;
@@ -585,15 +612,16 @@ body {
   align-items: center;
   justify-content: center;
 
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
 
-  color: var(--white);
-  background: var(--handiman-blue-dark);
+  color: #ffffff;
+  background: #354b5e;
 
   border-radius: 50%;
 
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 800;
 }
 
@@ -669,6 +697,7 @@ body {
   .benefit-number {
     width: 40px;
     height: 40px;
+    font-size: 0.75rem;
   }
 }
 
@@ -681,7 +710,7 @@ body {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 
   width: 100%;
-  height: clamp(260px, 32vw, 480px);
+  height: clamp(320px, 38vw, 560px);
 
   overflow: hidden;
   background:
@@ -706,8 +735,8 @@ body {
 
   pointer-events: none;
 
-  background: linear-gradient(180deg, rgba(10, 22, 34, 0.06), rgba(10, 22, 34, 0.26));
-  opacity: 0.8;
+  background: linear-gradient(180deg, rgba(10, 22, 34, 0.04), rgba(10, 22, 34, 0.2));
+  opacity: 0.7;
 }
 
 .image-band-item::after {
@@ -733,7 +762,7 @@ body {
   z-index: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.08;
+  opacity: 0.16;
 
   object-fit: cover;
   object-position: center;
@@ -775,14 +804,14 @@ body {
   background:
     linear-gradient(
       90deg,
-      rgba(12, 33, 51, 0.58),
-      rgba(12, 33, 51, 0.1),
-      rgba(12, 33, 51, 0.58)
+      rgba(12, 33, 51, 0.48),
+      rgba(12, 33, 51, 0.08),
+      rgba(12, 33, 51, 0.48)
     ),
     linear-gradient(
       180deg,
-      rgba(12, 33, 51, 0.04) 35%,
-      rgba(12, 33, 51, 0.82) 100%
+      rgba(12, 33, 51, 0.02) 35%,
+      rgba(12, 33, 51, 0.72) 100%
     );
 }
 
@@ -880,7 +909,7 @@ body {
 
   .image-band-item {
     grid-column: span 2;
-    height: 240px;
+    height: 280px;
   }
 
   .image-band-item:nth-child(4),
@@ -899,7 +928,7 @@ body {
   .image-band {
     display: grid;
     place-items: center;
-    height: clamp(320px, 78vw, 460px);
+    height: clamp(360px, 86vw, 540px);
     padding: 0.9rem;
     overflow: hidden;
   }
@@ -1748,10 +1777,49 @@ body {
     transform 0.25s ease;
 }
 
+.social-links a i {
+  margin-right: 0.6rem;
+  font-size: 0.95em;
+}
+
+.social-facebook {
+  color: #1877f2;
+  border-color: rgba(24, 119, 242, 0.3);
+}
+
+.social-instagram {
+  color: #dd2a7b;
+  border-color: rgba(221, 42, 123, 0.28);
+}
+
+.social-tiktok {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-youtube {
+  color: #ff0000;
+  border-color: rgba(255, 0, 0, 0.28);
+}
+
+.social-facebook i {
+  color: #1877f2;
+}
+
+.social-instagram i {
+  color: #dd2a7b;
+}
+
+.social-tiktok i {
+  color: #ffffff;
+}
+
+.social-youtube i {
+  color: #ff0000;
+}
+
 .social-links a:hover {
-  color: #1a3a59;
-  background: #f1d043;
-  border-color: #f1d043;
+  background: rgba(255, 255, 255, 0.14);
   transform: translateY(-2px);
 }
 
@@ -1931,4 +1999,79 @@ body {
   .footer-cta {
     width: 100%;
   }
+
+  .social-links {
+    gap: 0.6rem;
+  }
+
+  .social-links a {
+    width: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+
+    font-size: 0;
+  }
+
+  .social-facebook {
+    background: #1877f2;
+    border-color: #1877f2;
+  }
+
+  .social-instagram {
+    background: linear-gradient(135deg, #f58529, #dd2a7b 55%, #8134af);
+    border-color: #dd2a7b;
+  }
+
+  .social-tiktok {
+    background: #000000;
+    border-color: #000000;
+  }
+
+  .social-youtube {
+    background: #ff0000;
+    border-color: #ff0000;
+  }
+
+  .social-links a i {
+    margin-right: 0;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+}
+
+
+.form-status {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.form-status-pending {
+  color: #1a3a59;
+}
+
+.form-status-success {
+  padding: 1rem;
+  color: #175f35;
+  background: #eaf8ef;
+  border: 1px solid #a9dab9;
+  border-radius: 12px;
+}
+
+.form-status-error {
+  padding: 1rem;
+  color: #991b1b;
+  background: #fff0f0;
+  border: 1px solid #efb2b2;
+  border-radius: 12px;
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
 }

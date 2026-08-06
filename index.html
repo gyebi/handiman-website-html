@@ -8,6 +8,7 @@
     content="Handiman mobile car detailing with a bold local marketing page, clear services, and a simple quote request flow." />
   <title>Handiman | Mobile Car Detailing</title>
   <link rel="preload" as="image" href="./public/assets/splash_logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="./styles.css" />
   <script src="script.js" defer></script>
 </head>
@@ -18,7 +19,8 @@
     <a class="brand" href="#top" aria-label="Handiman home">
       <img class="logo" src="./public/assets/handiman-logo.png" alt="Handiman" />
     </a>
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu">
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false"
+      aria-label="Open navigation menu">
       <span class="nav-toggle-line"></span>
       <span class="nav-toggle-line"></span>
       <span class="nav-toggle-line"></span>
@@ -51,6 +53,7 @@
       </p>
 
       <a class="video-button" href="#request">
+        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
         Request Car Detailing
       </a>
     </div>
@@ -72,10 +75,12 @@
 
       <div class="hero-actions">
         <a class="primary-button" href="#request">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
           Request Car Detailing
         </a>
 
         <a class="secondary-button" href="#services">
+          <i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i>
           Explore Detailing Services
         </a>
       </div>
@@ -92,6 +97,7 @@
             <span class="benefit-number">01</span>
 
             <div>
+              <i class="fa-solid fa-car-side benefit-icon" aria-hidden="true"></i>
               <strong>Choose your service</strong>
               <p>
                 Select interior, exterior, or complete vehicle detailing.
@@ -103,6 +109,7 @@
             <span class="benefit-number">02</span>
 
             <div>
+              <i class="fa-solid fa-location-dot benefit-icon" aria-hidden="true"></i>
               <strong>Provide your location</strong>
               <p>
                 Request service at home, work, or another agreed location.
@@ -114,6 +121,7 @@
             <span class="benefit-number">03</span>
 
             <div>
+              <i class="fa-solid fa-clock benefit-icon" aria-hidden="true"></i>
               <strong>Arrange a convenient time</strong>
               <p>
                 Share your preferred date and availability when requesting service.
@@ -130,7 +138,7 @@
   id="car-assets"
   aria-label="Handiman car detailing services"
 >
-  <figure class="image-band-item">
+  <figure class="image-band-item is-active">
     <img
       src="./public/assets/car-assets/car-detailing-1.jpg"
       alt="Professional exterior car detailing"
@@ -182,10 +190,6 @@
 
   <div class="image-band-overlay" aria-hidden="true"></div>
   <div class="image-band-flash" aria-hidden="true"></div>
-
-  <div class="image-band-content">
-    <p class="image-band-caption" data-band-caption-text>Paint and finish</p>
-  </div>
 </section>
 
   <section id="services" class="section-services" aria-labelledby="services-title">
@@ -224,7 +228,9 @@
           <li>Interior window cleaning</li>
         </ul>
 
-        <a class="service-button" href="#request" data-service = "interior" aria-label="Request an interior detailing service">
+        <a class="service-button" href="#request" data-service="interior"
+          aria-label="Request an interior detailing service">
+          <i class="fa-solid fa-broom" aria-hidden="true"></i>
           Request Interior Detail
         </a>
       </article>
@@ -249,7 +255,9 @@
           <li>Tyre shine and finishing</li>
         </ul>
 
-        <a class="service-button" href="#request" data-service = "Exterior" aria-label="Request an exterior detailing service">
+        <a class="service-button" href="#request" data-service="exterior"
+          aria-label="Request an exterior detailing service">
+          <i class="fa-solid fa-shield-car" aria-hidden="true"></i>
           Request Exterior Detail
         </a>
       </article>
@@ -276,7 +284,8 @@
           <li>Exterior finishing treatment</li>
         </ul>
 
-        <a class="service-button" href="#request" data-service = "full" aria-label="Request a full detailing service">
+        <a class="service-button" href="#request" data-service="full" aria-label="Request a full detailing service">
+          <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
           Request Full Detail
         </a>
       </article>
@@ -299,16 +308,29 @@
         </p>
       </div>
 
-      <form class="request-form" action="#" method="post">
+      <form id="detailing-request-form" class="request-form" action="#" method="post">
         <div class="form-grid">
           <div class="form-group">
-            <label for="customer-name">Full name</label>
+            <label for="customer-name">Full Name</label>
             <input id="customer-name" name="customerName" type="text" autocomplete="name" required />
           </div>
 
           <div class="form-group">
-            <label for="customer-phone">Phone number</label>
-            <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" inputmode="tel" required />
+            <label for="customer-phone">Mobile Number</label>
+
+            <input id="customer-phone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel"
+              placeholder="024 123 4567" maxlength="17" aria-describedby="phone-help phone-error" required />
+
+            <small id="phone-help" class="form-help">
+               e.g. 024 123 4567 or +233 24 123 4567.
+            </small>
+
+            <small id="phone-error" class="field-error" aria-live="polite"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="customer-email">Email address</label>
+            <input id="customer-email" name="customerEmail" type="email" autocomplete="email" />
           </div>
 
           <div class="form-group">
@@ -355,9 +377,9 @@
             <label for="preferred-time">Preferred time window</label>
             <select id="preferred-time" name="preferredTime">
               <option value="">Choose a time</option>
-              <option value="morning">Morning</option>
-              <option value="afternoon">Afternoon</option>
-              <option value="evening">Evening</option>
+              <option value="morning">Morning : 9am-12noon</option>
+              <option value="afternoon">Afternoon : 1pm-5pm</option>
+              <option value="evening">Evening : 5pm-7pm</option>
               <option value="flexible">Flexible</option>
             </select>
           </div>
@@ -370,14 +392,17 @@
         </div>
 
         <p class="form-note">
-          Submitting this form sends a quote request. Your appointment is not
-          confirmed until Handiman contacts you.
+          Upon submitting this form, a staff of Handiman will contact
+          you to confirm your appointment.
         </p>
 
-        <button class="submit-button" type="submit">
-          Request My Detailing Quote
+        <button id="request-submit-button" class="submit-button" type="submit">
+          Schedule Detailing Appointment
         </button>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+
       </form>
+
     </div>
 
     <aside class="contact-card" aria-labelledby="contact-title">
@@ -400,12 +425,14 @@
       </ul>
 
       <div class="contact-actions">
-        <a class="contact-button" href="tel:0000000000">
+        <a class="contact-button" href="tel:0557379828">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
           Call for a Quote
         </a>
 
         <a class="contact-button-alt" href="#faq">
-          Read Frequently Asked Questions
+          <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+          Other Services
         </a>
       </div>
 
@@ -413,114 +440,99 @@
   </section>
 
   <footer class="site-footer">
-  <div class="footer-main">
-    <div class="footer-brand">
-      <a href="#top" class="footer-logo-link" aria-label="Handiman home">
-        <img
-          class="footer-logo"
-          src="./public/assets/splash_logo.png"
-          alt="Handiman"
-        />
-      </a>
-
-      <p class="footer-description">
-        Handiman makes it easier to request professional car detailing at a
-        convenient location and time.
-      </p>
-
-      <div class="social-links" aria-label="Handiman social media">
-        <a
-          href="https://facebook.com/handiman"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Handiman on Facebook"
-        >
-          Facebook
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#top" class="footer-logo-link" aria-label="Handiman home">
+          <img class="footer-logo" src="./public/assets/splash_logo.png" alt="Handiman" />
         </a>
 
-        <a
-          href="https://instagram.com/handiman"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Handiman on Instagram"
-        >
-          Instagram
-        </a>
+        <p class="footer-description">
+          Handiman makes it easier to request professional car detailing at a
+          convenient location and time.
+        </p>
 
-        <a
-          href="https://tiktok.com/@handiman"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Handiman on TikTok"
-        >
-          TikTok
-        </a>
+        <div class="social-links" aria-label="Handiman social media">
+          <a class="social-link social-facebook" href="https://www.facebook.com/HandimanGh" target="_blank" rel="noopener noreferrer"
+            aria-label="Follow Handiman on Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            Facebook
+          </a>
 
-        <a
-          href="https://youtube.com/@handiman"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Handiman on YouTube"
-        >
-          YouTube
+          <a class="social-link social-instagram" href="https://www.instagram.com/HandimanGh" target="_blank" rel="noopener noreferrer"
+            aria-label="Follow Handiman on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            Instagram
+          </a>
+
+          <a class="social-link social-tiktok" href="https://www.tiktok.com/@HandimanGh" target="_blank" rel="noopener noreferrer"
+            aria-label="Follow Handiman on TikTok">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            TikTok
+          </a>
+
+          <a class="social-link social-youtube" href="https://www.youtube.com/@HandimanGh" target="_blank" rel="noopener noreferrer"
+            aria-label="Visit Handiman on YouTube">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-column" aria-labelledby="footer-sitemap">
+        <h2 id="footer-sitemap">Sitemap</h2>
+
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#services">Detailing Services</a></li>
+          <li><a href="#request">Request a Quote</a></li>
+          <li><a href="#car-assets">Vehicle Care</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-column" aria-labelledby="footer-services">
+        <h2 id="footer-services">Services</h2>
+
+        <ul>
+          <li><a href="#services">Interior Detail</a></li>
+          <li><a href="#services">Exterior Detail</a></li>
+          <li><a href="#services">Full Detail</a></li>
+          <li><a href="#request">Mobile Detailing</a></li>
+          <li><a href="#request">Request a Custom Quote</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-column footer-contact">
+        <h2>Contact</h2>
+
+        <address>
+          <a href="tel:0557379828">0557379828</a>
+
+          <a href="mailto:hello@handiman.example">
+            hello@handiman.example
+          </a>
+
+          <p>Serving selected local areas</p>
+        </address>
+
+        <a class="footer-cta" href="#request">
+          <i class="fa-solid fa-file-circle-plus" aria-hidden="true"></i>
+          Request Car Detailing
         </a>
       </div>
     </div>
 
-    <nav class="footer-column" aria-labelledby="footer-sitemap">
-      <h2 id="footer-sitemap">Sitemap</h2>
+    <div class="footer-bottom">
+      <p>
+        &copy; <span id="current-year"></span> Handiman. All rights reserved.
+      </p>
 
-      <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#services">Detailing Services</a></li>
-        <li><a href="#request">Request a Quote</a></li>
-        <li><a href="#car-assets">Vehicle Care</a></li>
-      </ul>
-    </nav>
-
-    <nav class="footer-column" aria-labelledby="footer-services">
-      <h2 id="footer-services">Services</h2>
-
-      <ul>
-        <li><a href="#services">Interior Detail</a></li>
-        <li><a href="#services">Exterior Detail</a></li>
-        <li><a href="#services">Full Detail</a></li>
-        <li><a href="#request">Mobile Detailing</a></li>
-        <li><a href="#request">Request a Custom Quote</a></li>
-      </ul>
-    </nav>
-
-    <div class="footer-column footer-contact">
-      <h2>Contact</h2>
-
-      <address>
-        <a href="tel:0000000000">000-000-0000</a>
-
-        <a href="mailto:hello@handiman.example">
-          hello@handiman.example
-        </a>
-
-        <p>Serving selected local areas</p>
-      </address>
-
-      <a class="footer-cta" href="#request">
-        Request Car Detailing
-      </a>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/accessibility.html">Accessibility</a>
+      </div>
     </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>
-      &copy; <span id="current-year"></span> Handiman. All rights reserved.
-    </p>
-
-    <div class="footer-legal">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms of Service</a>
-      <a href="/accessibility.html">Accessibility</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 
