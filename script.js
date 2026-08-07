@@ -231,6 +231,8 @@ function normalizeGhanaMobileNumber(value) {
 const requestForm = document.querySelector("#detailing-request-form");
 const formStatus = document.querySelector("#form-status");
 
+//const HANDIMAN_API_BASE_URL = "https://ai-handiman--handimanautocare.us-east4.hosted.app";
+
 const HANDIMAN_API_BASE_URL = "http://localhost:3000";
 
 function getOptionalFormValue(formData, fieldName) {
